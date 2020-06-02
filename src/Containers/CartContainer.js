@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux'
-import Product from './../component/Product'
+import Cart from './../component/Cart'
+import CartItem from './../component/CartItem'
+import CartResult from './../component/CartResult'
+// import Product from './../component/Product'
 class CartContainer extends Component {
   render() {
 
@@ -10,14 +13,32 @@ class CartContainer extends Component {
       // <Product>
       //     {this.showCartItem(cart)}
       // </Product>
-      <div></div>   
+      
+          <Cart>
+              {this.showCartItem(cart)}
+              {this.showTotalAmount(cart)}
+          </Cart>
+     
     );
   }
-  // showCartItem = (cart) =>{
-  //   if(cart.length>0){
-  //     result = cart.map((item, index) =>)
-  //   }
-  // }
+  showTotalAmount = (cart) => {
+    var result = null;
+    if (cart.length > 0) {
+        result = <CartResult cart={cart} />
+    }
+    return result;
+}
+  showCartItem = (cart) =>{
+      var result = null;
+      if(cart.length>0){
+          result = cart.map((item,index) =>{
+            return(
+              <CartItem key={index} item={item}></CartItem>
+            )
+          }) 
+      }
+      return result;
+  }
 }
 
 
