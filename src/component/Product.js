@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Cart from "./Cart";
 import "./cpnStyle/Produc.scss";
 import {
   Form,
@@ -76,17 +75,8 @@ class Product extends Component {
                 </ModalHeader>
                 <ModalBody>
                   <img className="modalImage" src={product.image}></img>
-                  <p>Price : {product.price} $</p>
-                  <Form onSubmit={this.handleSubmit}>
-                    <Input
-                      onChange={this.onHandleChange}
-                      type="number"
-                      name="amount"
-                      placeholder="Số lượng"
-                    ></Input>
-                    {/* <Button  type="submit" value="submit">Submit</Button> */}
-                  </Form>
-                  {/* <p>{() => this.showTotalamount(product)}</p> */}
+                  <h5>Price : {product.price} $</h5>
+                  <h5>Bạn chắc chắn muốn mua món hàng này </h5>
                 </ModalBody>
                 <ModalFooter>
                   <Button onClick={() => this.onAddToCart(product)}>

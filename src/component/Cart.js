@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import CartContainer from "./../Containers/CartContainer";
-import './cpnStyle/Cart.scss'
 class Cart extends Component {
   render() {
     var {children} = this.props
@@ -11,17 +9,17 @@ class Cart extends Component {
     //     });
     // }
     return (
-      <section className="section container-fluid">
+    
         <div className="table-responsive">
-          <table className="table product-table">
+          <table className="table">
             <thead>
               <tr>
                 <th></th>
                 <th>Sản Phẩm</th>
                 <th>Giá</th>
                 <th>Số Lượng</th>
+                <th>Tăng Giảm</th>
                 <th>Tổng Cộng</th>
-                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -29,7 +27,7 @@ class Cart extends Component {
             </tbody>
           </table>
         </div>
-      </section>
+     
     );
   }
 }

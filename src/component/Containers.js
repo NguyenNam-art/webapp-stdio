@@ -113,10 +113,6 @@ class Containers extends Component {
             </div>
           </div>
         </div>
-        {/* <hr></hr>
-        <div className="container-fluid">
-        <Blogs></Blogs>
-        </div> */}
       </div>
     );
   }
