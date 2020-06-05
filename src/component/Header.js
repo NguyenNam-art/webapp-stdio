@@ -3,10 +3,28 @@ import "./cpnStyle/Header.scss";
 import logo from "./../img/logo-giay2hand.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { BrowserRouter as Router, Route ,Link} from "react-router-dom";
-import ProductContainer from './../Containers/ProductContainer'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import ProductContainer from "./../Containers/ProductContainer";
+import CartContainer from "./../Containers/CartContainer";
 class Header extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      keyword : ''
+    }
+  }
+  onChange = (event) =>{
+    var target  = event.target;
+    var name = target.name;
+    var value = target.value;
+    this.setState({
+      [name] : value
+    });
+    console.log(this.state);
+
+  }
   render() {
+    var {keyword} = this.state;
     return (
       <Router>
         <div className="App">
@@ -31,7 +49,9 @@ class Header extends Component {
             <div className="collapse navbar-collapse" id="collapsibleNavId">
               <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li className="nav-item active">
-                  <Link to="/Home" className="nav-link">GIÀY SECONDHAND <span className="sr-only">(current)</span></Link>
+                  <a href="/Home" className="nav-link">
+                    GIÀY SECONDHAND <span className="sr-only">(current)</span>
+                  </a>
                 </li>
                 <li className="nav-item active">
                   <a className="nav-link" href="/Home">
@@ -54,6 +74,10 @@ class Header extends Component {
                   className="form-control mr-sm-2"
                   type="text"
                   placeholder="Search"
+                  name ="keyword"
+                  value = {keyword}
+                  onChange = {this.onChange }
+
                 />
                 <button
                   className="btn btn-outline-success my-2 my-sm-0"
@@ -67,13 +91,12 @@ class Header extends Component {
               <a href="/Cart">
                 <FontAwesomeIcon className="icon" icon={faShoppingCart} />
               </a>
-              <a>
+              <a href="/Home">
                 <FontAwesomeIcon className="icon" icon={faHeart} />
               </a>
             </div>
-          </nav>  
+          </nav>
         </div>
-        
       </Router>
     );
   }

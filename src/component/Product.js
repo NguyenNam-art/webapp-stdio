@@ -37,6 +37,7 @@ class Product extends Component {
     this.setState({
       modalisopen: !this.state.modalisopen,
     });
+    alert('thêm vào giỏi hàng thành công')
   };
 
   handleSubmit(event) {

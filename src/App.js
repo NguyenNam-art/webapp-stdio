@@ -11,8 +11,11 @@ function App() {
     <Router>
       <div className="App">
       <Header></Header>
+      
       <Route path="/Cart" component={CartContainer}></Route>
-      <Route path="/Home" component={ProductContainer}></Route>  
+      <Route exact path='/' component={ProductContainer}/>
+      <Route path="/Home" component={ProductContainer}></Route>
+      
       <Footer></Footer>
     </div>
     </Router>

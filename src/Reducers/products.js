@@ -1,3 +1,4 @@
+import * as types from './../Constants/Actiontypes'
 var initialState = [
     {
         id : 1,
@@ -69,7 +70,11 @@ var initialState = [
     }
 ]
 const products = (state = initialState,action) =>{
+    var {keyword} = action;
     switch(action.type){
+        case types.SEARCH :
+            
+
         default : return [...state];
     }
 }
